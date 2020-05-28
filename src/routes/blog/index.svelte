@@ -60,7 +60,12 @@
   }
 </style>
 
-<h2>Recent posts:</h2>
+<svelte:head>
+  <title>Blog - all posts - Sven Assmann</title>
+  <meta
+          name="description"
+          content="All blog posts of Sven Assmann" />
+</svelte:head>
 
 <div class="posts">
   {#each posts as post}
@@ -84,7 +89,7 @@
         {@html post.excerptHtml}
       </p>
       <div>
-        <a class="read-more" hreflang="en" href="blog/{post.slug}">Continue reading »</a>
+        <a rel="prefetch" class="read-more" hreflang="en" href="blog/{post.slug}">Continue reading »</a>
       </div>
     </div>
   {/each}

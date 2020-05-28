@@ -30,7 +30,10 @@
 
 <!-- src/routes/blog/[slug].svelte -->
 <svelte:head>
-  <title>{article.title}</title>
+  <title>{article.title} - Sven Assmann</title>
+  <meta
+    name="description"
+    content="{article.title}" />
 </svelte:head>
 
 <h1>{article.title}</h1>
