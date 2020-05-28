@@ -85,12 +85,12 @@ h1 {
   margin: 0 0 0.5em 0;
 }
 
-@include media("<=sm") {
+@mixin responsive($font-size, $padding) {
   body {
-    font-size: 150%;
+    font-size: $font-size;
   }
   main {
-    padding: 2%;
+    padding: $padding;
   }
 
   h1,
@@ -99,62 +99,24 @@ h1 {
   h4,
   h5,
   h6 {
-    font-size: 150%;
+    font-size: $font-size;
   }
+}
+
+@include media("<=sm") {
+  @include responsive(150%, 2%);
 }
 
 @include media(">sm", "<=md") {
-  body {
-    font-size: 120%;
-  }
-  main {
-    padding: 5%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 120%;
-  }
+  @include responsive(120%, 5%);
 }
 
 @include media(">md", "<=lg") {
-  body {
-    font-size: 125%;
-  }
-  main {
-    padding: 2% 10%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 150%;
-  }
+  @include responsive(110%, 2% 6%);
 }
 
 @include media(">lg") {
-  body {
-    font-size: 130%;
-  }
-  main {
-    padding: 3% 20%;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: 150%;
-  }
+  @include responsive(125%, 3% 20%);
 }
 
 a {
