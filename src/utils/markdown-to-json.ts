@@ -76,10 +76,14 @@ async function getPostData({
     const contentHtml = Marked.parse(yamlHeader.__content)
     const excerpt = excerptHtml(contentHtml, { pruneLength: 250 })
     const date = yamlHeader.date ?? Date.parse(file.substring(0, 10))
+    const slug = file
+      .substring(11, file.length)
+      .replace(/\s/, '-')
+      .replace(/\.md/, '')
 
     return {
       ...((yamlHeader as any) as PostYamlHeader),
-      slug: file,
+      slug,
       contentHtml,
       excerptHtml: excerpt,
       tags: yamlHeader.tags
